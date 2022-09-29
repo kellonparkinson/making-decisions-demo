@@ -5,7 +5,7 @@
 */ 
 
 let jonSnowAttack = 25;
-let jamieLannisterAttack = 35;
+let jamieLannisterAttack = 45;
 
 //Narration - Who has the higher attack?
 
@@ -65,15 +65,34 @@ if (coinLandsHeads) {
     console.log('Jon is allowed to run away.')
 };
 
-//Jamie attacks Jon five times.
+// Jamie attacks Jon 20 times, unless Jon's health reaches 0.
+// Assignment 1: 
+// Write logic in the for loop that detects if Jon's health gets 0 or less. In which case, print that Jon is dead, and stop further loop iterations. (See the "break" JS keyword for leaving a loop early).
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 20; i++) {
     jonSnowHealth -= (jamieLannisterAttack - jonSnowDefense);
-    console.log('Jon is attacked by Jamie!')
+    if (jonSnowHealth <= 0) {
+        console.log('Jon Snow has been slain.')
+        break;
+    };
+    console.log(`Jon Snow is attacked by Jamie! His health is now ${jonSnowHealth}.`);
 };
 
-console.log(`Jon Snow's health is now ${jonSnowHealth}.`);
 
-//Assignment 1: Write logic in the for loop that detects if Jon's health gets 0 or less. In which case, print that Jon is dead, and stop further loop iterations. (See the "break" JS keyword for leaving a loop early).
+// Assigment 2: 
+// Write the for loop (including the logic you wrote for the first assignment) as a while loop. It should behave exactly the same.
 
-//Assigment 2: Write the for loop (including the logic you wrote for the first assignment) as a while loop. It should behave exactly the same.
+// Reset Jon Snow's health to 100 in order to test the while loop
+
+jonSnowHealth = 100;
+let i = 0;
+
+while (i < 20) {
+    jonSnowHealth -= (jamieLannisterAttack - jonSnowDefense);
+    if (jonSnowHealth <= 0) {
+        console.log('Jon Snow has been slain.')
+        break;
+    };
+    console.log(`Jon Snow is attacked by Jamie! His health is now ${jonSnowHealth}.`);
+    i++;
+};
